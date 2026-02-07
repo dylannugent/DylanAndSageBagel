@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "C:\\Users\\Owner\\DylanAndSageBagelGame\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{392484D6-E8F5-6261-4280-0D6475582D54}|Assembly-CSharp.csproj|C:\\Users\\Owner\\DylanAndSageBagelGame\\assets\\bagelcut.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{392484D6-E8F5-6261-4280-0D6475582D54}|Assembly-CSharp.csproj|c:\\users\\owner\\dylanandsagebagelgame\\assets\\bagelcut.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{392484D6-E8F5-6261-4280-0D6475582D54}|Assembly-CSharp.csproj|solutionrelative:assets\\bagelcut.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{392484D6-E8F5-6261-4280-0D6475582D54}|Assembly-CSharp.csproj|c:\\users\\owner\\dylanandsagebagelgame\\assets\\drag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{392484D6-E8F5-6261-4280-0D6475582D54}|Assembly-CSharp.csproj|C:\\Users\\Owner\\DylanAndSageBagelGame\\assets\\drag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{392484D6-E8F5-6261-4280-0D6475582D54}|Assembly-CSharp.csproj|solutionrelative:assets\\drag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -28,9 +28,10 @@
               "RelativeDocumentMoniker": "Assets\\drag.cs",
               "ToolTip": "C:\\Users\\Owner\\DylanAndSageBagelGame\\Assets\\drag.cs",
               "RelativeToolTip": "Assets\\drag.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAywEcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAAFYAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-07T03:57:14.179Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
@@ -39,9 +40,9 @@
               "Title": "BagelCut.cs",
               "DocumentMoniker": "C:\\Users\\Owner\\DylanAndSageBagelGame\\Assets\\BagelCut.cs",
               "RelativeDocumentMoniker": "Assets\\BagelCut.cs",
-              "ToolTip": "C:\\Users\\Owner\\DylanAndSageBagelGame\\Assets\\BagelCut.cs*",
-              "RelativeToolTip": "Assets\\BagelCut.cs*",
-              "ViewState": "AgIAABAAAAAAAAAAAAAgwEAAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Owner\\DylanAndSageBagelGame\\Assets\\BagelCut.cs",
+              "RelativeToolTip": "Assets\\BagelCut.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAwwBoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-07T03:55:46.809Z",
               "EditorCaption": ""

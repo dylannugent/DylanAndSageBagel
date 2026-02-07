@@ -23,12 +23,12 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Drag.cs",
+              "Title": "drag.cs",
               "DocumentMoniker": "C:\\Users\\Owner\\DylanAndSageBagelGame\\Assets\\drag.cs",
               "RelativeDocumentMoniker": "Assets\\drag.cs",
               "ToolTip": "C:\\Users\\Owner\\DylanAndSageBagelGame\\Assets\\drag.cs",
               "RelativeToolTip": "Assets\\drag.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAAAFYAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAACsAAAAAAAAAAAA1wFYAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-07T03:57:14.179Z",
               "IsPinned": true,
@@ -42,7 +42,7 @@
               "RelativeDocumentMoniker": "Assets\\BagelCut.cs",
               "ToolTip": "C:\\Users\\Owner\\DylanAndSageBagelGame\\Assets\\BagelCut.cs",
               "RelativeToolTip": "Assets\\BagelCut.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAwwBoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-07T03:55:46.809Z",
               "EditorCaption": ""

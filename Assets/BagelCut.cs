@@ -1,44 +1,58 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class BagelCut : MonoBehaviour
 {
-
     public float cutTimeRequired = 2.0f;
     private float currentProgress = 0f;
-
     public GameObject slicedBagelPrefab;
     public string cuttingToolTag = "Knife";
-
     public Slider progressBar;
 
-    private bool isTouchingBagel = false;
+    private bool isKnifeInside = false; // The physics flag
     private bool canCut = false;
 
     void Start()
     {
-        if (progressBar != null)
+        if (progressBar != null) progressBar.gameObject.SetActive(false);
+    }
+
+    // 1. Physics only sets the "Inside" flag
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag(cuttingToolTag))
         {
-            progressBar.gameObject.SetActive(false);
+            isKnifeInside = true;
+            Drag knife = other.GetComponent<Drag>();
+            if (knife != null) knife.isOverBagel = true;
         }
     }
 
-    private void OnTriggerStay2D(Collider2D other) {
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag(cuttingToolTag))
+        {
+            isKnifeInside = false;
+            Drag knife = other.GetComponent<Drag>();
+            if (knife != null) knife.isOverBagel = false;
+        }
+    }
 
+    // 2. Update handles Input and Progress (very reliable)
+    void Update()
+    {
         Mouse mouse = Mouse.current;
+        if (mouse == null) return;
 
-        Drag knifeScript = other.GetComponent<Drag>();
-        knifeScript.isOverBagel = true;
+        // If knife is touching AND you let go anywhere on the bagel
+        if (isKnifeInside && mouse.leftButton.wasReleasedThisFrame)
+        {
+            canCut = true;
 
-        if (other.CompareTag(cuttingToolTag) && mouse.leftButton.wasReleasedThisFrame) {
-
-            Debug.Log("Hello");
-           
-                canCut = true;
-                knifeScript.isDraggable = false;
-            
+            // Disable knife dragging
+            GameObject knifeObj = GameObject.FindWithTag(cuttingToolTag);
+            if (knifeObj != null) knifeObj.GetComponent<Drag>().isDraggable = false;
         }
 
         if (canCut)
@@ -51,48 +65,20 @@ public class BagelCut : MonoBehaviour
             {
                 FinishCut();
             }
-                
-        }
-
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag(cuttingToolTag))
-        {
-            Drag knifeScript = other.GetComponent<Drag>();
-            if (knifeScript != null)
-            {
-                knifeScript.isOverBagel = false;
-            }
         }
     }
-
-
 
     void FinishCut()
     {
-        // 1. Find the knife by its tag
         GameObject knife = GameObject.FindWithTag(cuttingToolTag);
-
         if (knife != null)
         {
             Drag knifeScript = knife.GetComponent<Drag>();
-
-            // 2. Set the knife back to draggable and move it home
             knifeScript.isDraggable = true;
             knife.transform.position = knifeScript.startPosition;
         }
 
-        // 3. Spawn the sliced bagel
         Instantiate(slicedBagelPrefab, transform.position, Quaternion.identity);
-
-        // 4. Reset our local cut variable (though the object is about to be destroyed)
-        canCut = false;
-
-        // 5. FINALLY destroy the bagel
         Destroy(gameObject);
     }
-
-
 }
