@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,20 +9,6 @@ public class ChosenBagel : MonoBehaviour
     public GameObject thisBagel;
     public Vector3[] spawnPosition;
     private static bool[] spawnedHere = new bool[4];
-
-
-    void Start()
-    {
-       /* spawnPosition = new Vector3[]
-        {
-            new Vector3(-1,2,0),
-            new Vector3(1,2,0),
-            new Vector3(-1,3,0),
-            new Vector3(1,3,0)
-
-        }; */
-      
-      }
 
 
     private Vector3 bestSpawn;
@@ -55,7 +42,9 @@ public class ChosenBagel : MonoBehaviour
                         bestSpawn = spawnPosition[i];
                         spawnedHere[i] = true;
 
-                        Instantiate(thisBagel, bestSpawn, Quaternion.identity);
+                        GameObject clone  = Instantiate(thisBagel, bestSpawn, Quaternion.identity);
+
+                        clone.tag = "Bagel" + i;
 
                         break;
                     }

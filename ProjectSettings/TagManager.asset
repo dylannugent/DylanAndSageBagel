@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - Knife
+  - Bagel
+  - Butter
+  - Bacon
   layers:
   - Default
   - TransparentFX
