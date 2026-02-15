@@ -1225,8 +1225,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 242e444d70b6d4146b6b6a080b92dee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DraggableItem
-  thisItem: bacon
-  tagFind: {fileID: 0}
 --- !u!61 &1161694516
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1699,8 +1697,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 242e444d70b6d4146b6b6a080b92dee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  thisItem: butter
-  tagFind: {fileID: 0}
 --- !u!114 &1537569246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1919,7 +1915,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: -7590985111852922332, guid: c811f01b921e1f846b7cda6456026c9d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
