@@ -118,7 +118,7 @@ public class DraggableItem : MonoBehaviour
 
 */
 
-using System;
+/* using System;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -130,7 +130,7 @@ public class DraggableItem : MonoBehaviour
     private GameObject currentBagel = null;
 
     // Static means this list is shared across ALL butter/bacon items
-    static int[] itemsList = { 0, 1, 1 };
+    static int[] itemsList = { 0, 1, 1, 1};
 
     public void StartDragging() { isDragging = true; }
 
@@ -139,6 +139,7 @@ public class DraggableItem : MonoBehaviour
         // Use CompareTag on 'this' object
         if (gameObject.CompareTag("Butter")) return 1;
         if (gameObject.CompareTag("Bacon")) return 2;
+        if (gameObject.CompareTag("CreamCheese")) return 3;
         return 0;
     }
 
@@ -155,7 +156,7 @@ public class DraggableItem : MonoBehaviour
         // 2. MANUAL SCAN: Check if we are over a bagel right now
         // This creates a tiny circle at the butter's position to look for a bagel
         Collider2D hit = Physics2D.OverlapCircle(transform.position, 0.2f);
-        if (hit != null && hit.CompareTag("Bagel1"))
+        if (hit != null && hit.CompareTag("Bagel"))
         {
             currentBagel = hit.gameObject;
         }
@@ -205,4 +206,74 @@ public class DraggableItem : MonoBehaviour
             Debug.Log("Exited Bagel Trigger");
         }
     }
+} */
+
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class DraggableItem : MonoBehaviour
+{
+    private bool isDragging = false;
+    private GameObject currentBagel = null;
+    private SpriteRenderer spriteRenderer;
+
+    // Adjust this if needed
+    public float dragZOffset = -0.1f;
+    public float overlapRadius = 1.5f;
+
+    void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer == null)
+        {
+            Debug.LogError("DraggableItem requires a SpriteRenderer!");
+        }
+    }
+
+    public void StartDragging()
+    {
+        isDragging = true;
+        // Bring on top while dragging
+        if (spriteRenderer != null) spriteRenderer.sortingOrder = 100;
+    }
+
+   void Update()
+{
+    if (!isDragging) return;
+
+    // Follow mouse
+    Vector3 mousePos = Mouse.current.position.ReadValue();
+    mousePos.z = 10f;
+    Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
+    transform.position = new Vector3(worldPos.x, worldPos.y, dragZOffset);
+
+    // Detect bagel
+    Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, overlapRadius);
+    currentBagel = null;
+    foreach (var hit in hits)
+    {
+        if (hit.CompareTag("Bagel"))
+        {
+            currentBagel = hit.gameObject;
+            break;
+        }
+    }
+
+    // Drop logic
+    if (Mouse.current.leftButton.wasReleasedThisFrame)
+    {
+        if (currentBagel != null)
+        {
+            transform.SetParent(currentBagel.transform);
+            transform.localPosition = new Vector3(0, 0, dragZOffset);
+            spriteRenderer.sortingOrder = 3;
+            isDragging = false;
+            Destroy(this);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+}
 }

@@ -8,6 +8,7 @@ TagManager:
   - Bagel
   - Butter
   - Bacon
+  - CreamCheese
   layers:
   - Default
   - TransparentFX
