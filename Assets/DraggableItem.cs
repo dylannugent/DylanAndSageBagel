@@ -219,7 +219,7 @@ public class DraggableItem : MonoBehaviour
 
     // Adjust this if needed
     public float dragZOffset = -0.1f;
-    public float overlapRadius = 1.5f;
+    public float overlapRadius = 0.5f;
 
     void Awake()
     {
